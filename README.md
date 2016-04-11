@@ -335,6 +335,12 @@ PS: 此处因为电脑配置原因无法做更多线程，更大分割大小测�
 ```Java
 ExecutorService pool = Executors.newFixedThreadPool(threadNum);//创建一个可重用固定线程数的线程池
 ```
+threadNum个固定线程数在主类WordsCount的main()中设置：
+```
+DealFileText dft = new DealFileText(file2, 4, 1024 * 1024 * 10); // 文件，线程数，文件分割大小
+```
+此处线程数即为4个。  
+
 执行：
 ```Java
 Thread thread = new Thread(countWordsThread);
