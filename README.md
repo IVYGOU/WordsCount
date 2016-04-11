@@ -362,4 +362,4 @@ while(!pool.isTerminated())
         	.filter(word -> word.length() > 0)//保留长度不为 0 的单词
                 .collect(Collectors.toMap(s -> s, s -> 1, Integer::sum)); 
 ```
-首先将字符串采用split()进行分割后，使用flatMap整理到新的Stream，然后保留长度不为 0 的单词。最后通过collect()方法收集最终结果并转换为Map中存储。
+首先将字符串采用split()进行分割后，使用flatMap整理到新的Stream，然后保留长度不为 0 的单词。最后通过collect()方法收集结果到一个Map中。
