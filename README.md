@@ -339,7 +339,7 @@ threadNum个固定线程数在主类WordsCount的main()中设置：
 ```
 DealFileText dft = new DealFileText(file2, 4, 1024 * 1024 * 10); // 文件，线程数，文件分割大小
 ```
-此处线程数即为4个。  
+经过测试后，将线程数设置为2~4个处理时间较短，此处设置为4个线程。
 
 **执行：**
 ```Java
@@ -362,4 +362,4 @@ while(!pool.isTerminated())
         	.filter(word -> word.length() > 0)//保留长度不为 0 的单词
                 .collect(Collectors.toMap(s -> s, s -> 1, Integer::sum)); 
 ```
-首先将字符串采用split()进行分割后，使用flatMap整理到新的Stream，然后保留长度不为 0 的单词。最后通过collect()方法把Stream变为Map。
+首先将字符串采用split()进行分割后，使用flatMap整理到新的Stream，然后保留长度不为 0 的单词。最后通过collect()方法收集最终结果并转换为Map中存储。
