@@ -362,4 +362,4 @@ while(!pool.isTerminated())
         	.filter(word -> word.length() > 0)//保留长度不为 0 的单词
                 .collect(Collectors.toMap(s -> s, s -> 1, Integer::sum)); 
 ```
-首先将字符串全变为小写，并用flatMap整理到新的Stream，然后保留长度不为 0 的单词，将单词和出现次数存储于hashmap中。
+首先将字符串采用split()进行分割后，使用flatMap整理到新的Stream，然后保留长度不为 0 的单词。接下来通过collect()收集单词和单词次数，最后将list转换为map进行存储。
